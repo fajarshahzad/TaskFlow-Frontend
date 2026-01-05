@@ -16,7 +16,7 @@ const Projects = () => {
   // Fetch projects
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("https://task-flow-backend-ashen.vercel.app/projects", config);
+      const res = await axios.get("/projects", config);
       setProjects(res.data);
     } catch (err) {
       console.error("Error fetching projects:", err.response?.data?.message || err.message);
@@ -32,10 +32,10 @@ const Projects = () => {
 
     try {
       if (editId) {
-        await axios.put(`https://task-flow-backend-ashen.vercel.app/projects/${editId}`, { title, description }, config);
+        await axios.put(`/projects/${editId}`, { title, description }, config);
         setEditId(null);
       } else {
-        await axios.post("https://task-flow-backend-ashen.vercel.app/projects", { title, description }, config);
+        await axios.post("/projects", { title, description }, config);
       }
       setTitle(""); setDescription("");
       fetchProjects();
@@ -47,7 +47,7 @@ const Projects = () => {
 
   const deleteProject = async (id) => {
     try {
-      await axios.delete(`https://task-flow-backend-ashen.vercel.app/projects/${id}`, config);
+      await axios.delete(`/projects/${id}`, config);
       fetchProjects();
     } catch (err) {
       console.error("Error deleting project:", err.response?.data?.message || err.message);

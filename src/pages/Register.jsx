@@ -11,7 +11,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://task-flow-backend-ashen.vercel.app/auth/register", { email, password });
+      await axios.post("/auth/register", { email, password });
       navigate("/"); // redirect to login after successful registration
     } catch (err) {
       alert("Register failed: " + (err.response?.data?.message || err.message));
