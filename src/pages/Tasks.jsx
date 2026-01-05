@@ -16,7 +16,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("/tasks", config);
+      const res = await axios.get("https://task-flow-backend-ashen.vercel.app/tasks", config);
       setTasks(res.data);
     } catch (err) {
       console.error(err);
@@ -29,10 +29,10 @@ const Tasks = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`/tasks/${editId}`, { title, description, status }, config);
+        await axios.put(`https://task-flow-backend-ashen.vercel.app/tasks/${editId}`, { title, description, status }, config);
         setEditId(null);
       } else {
-        await axios.post("/tasks", { title, description, status }, config);
+        await axios.post("https://task-flow-backend-ashen.vercel.app/tasks", { title, description, status }, config);
       }
       setTitle(""); setDescription(""); setStatus("Pending");
       fetchTasks();
@@ -43,7 +43,7 @@ const Tasks = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`/tasks/${id}`, config);
+      await axios.delete(`https://task-flow-backend-ashen.vercel.app/tasks/${id}`, config);
       fetchTasks();
     } catch (err) {
       console.error(err);

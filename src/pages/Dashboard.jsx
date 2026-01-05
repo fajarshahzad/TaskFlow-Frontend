@@ -9,8 +9,8 @@ const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchData = async () => {
-    const projRes = await axios.get("/projects");
-    const taskRes = await axios.get("/tasks");
+    const projRes = await axios.get("https://task-flow-backend-ashen.vercel.app/projects");
+    const taskRes = await axios.get("https://task-flow-backend-ashen.vercel.app/tasks");
     setProjects(projRes.data);
     setTasks(taskRes.data);
   };
