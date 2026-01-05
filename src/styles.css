@@ -1,0 +1,540 @@
+/* ===== General ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fde2e4, #e0f2fe);
+  margin: 0;
+  padding: 0;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #fbcfe8, #7dd3fc);
+  padding: 15px 30px;
+  border-radius: 0 0 18px 18px;
+  color: #1f2937;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.navbar a {
+  color: #1f2937;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(-20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* ===== Cards ===== */
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ===== Buttons ===== */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-right: 5px;
+}
+
+.btn-add {
+  background: linear-gradient(90deg, #f9a8d4, #60a5fa);
+  color: white;
+}
+
+.btn-edit {
+  background-color: #7dd3fc;
+  color: #1f2937;
+}
+
+.btn-delete {
+  background-color: #fca5a5;
+  color: #7f1d1d;
+}
+
+button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* ===== Responsive Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Badges ===== */
+.priority-high { color: green; font-weight: bold; }
+.priority-medium { color: lightblue; font-weight: bold; }
+.priority-low { color: red; font-weight: bold; }
+
+/* ===== Dashboard Stats ===== */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.stats-box {
+  background: linear-gradient(135deg, #fbcfe8, #7dd3fc);
+  color: #1f2937;
+  padding: 25px;
+  border-radius: 18px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.stats-box h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.stats-box p {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31,41,55,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 22px;
+}
+
+.modal-close:hover {
+  color: #be123c;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* ===== Form Container ===== */
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ===== Inputs ===== */
+.form-container input {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #fbcfe8;        /* light pink border */
+  background-color: #fff;           /* pure white */
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder */
+.form-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus Effect */
+.form-container input:focus {
+  outline: none;
+  border-color: #7dd3fc;             /* sky blue */
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.35);
+  background-color: #ffffff;
+}
+
+/* ===== Add / Update Button ===== */
+.form-container .btn-add {
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 14px;
+  background: linear-gradient(90deg, #f9a8d4, #60a5fa);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.form-container .btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+/* ===== Task & Project Form Styling ===== */
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 22px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Inputs */
+.form-container input,
+.form-container select {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #fbcfe8; /* light pink */
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder */
+.form-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus */
+.form-container input:focus,
+.form-container select:focus {
+  outline: none;
+  border-color: #7dd3fc; /* sky blue */
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.35);
+}
+
+/* Select arrow clean */
+.form-container select {
+  cursor: pointer;
+}
+
+/* Add / Update Button */
+.btn-add {
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 14px;
+  background: linear-gradient(90deg, #f9a8d4, #60a5fa);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+/* ===== Sidebar Layout ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 200px;              /* ⬅ width kam ki */
+  background: linear-gradient(180deg, #f9a8d4, #60a5fa);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;        /* ⬅ padding thori kam */
+  box-shadow: 5px 0 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Logo */
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Links */
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;           /* ⬅ thora small */
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.sidebar-links a:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateX(4px);
+}
+
+/* Logout */
+.sidebar-logout {
+  margin-top: 280px;          /* ⬅ bottom se upar aa gaya */
+  background: #7dd3fc; 
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ===== Page Content Shift ===== */
+.container {
+  margin-left: 220px;        /* ⬅ sidebar ke hisaab se */
+  padding: 30px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+  .container {
+    margin-left: 190px;
+  }
+}
+/* Center page */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #add8e6); /* light pink to light blue */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Login card styling */
+.login-card {
+  background-color: #ffffff; /* white card for contrast */
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* softer shadow */
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  color: #333; /* dark text for readability */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Form styling */
+.login-card h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff69b4; /* accent color for title (hot pink) */
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background-color: #f8f8ff; /* very light background */
+  color: #333;
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  background-color: #e6f0ff; /* light blue on focus */
+  border-color: #ff69b4; /* hot pink border on focus */
+}
+
+/* Button styling */
+.login-card button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background: #ff69b4; /* hot pink button */
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-card button:hover {
+  background: #ff85c1; /* lighter pink on hover */
+}
+
+/* Auth text */
+.auth-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-text a {
+  color: #add8e6; /* light blue link */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-text a:hover {
+  text-decoration: underline;
+}
+/* Center page */
+.auth-page {
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  align-items: center;      /* vertical centering */
+  height: 100vh;            /* full viewport height */
+  width: 100vw;             /* full viewport width */
+  background: linear-gradient(135deg, #ffb6c1, #add8e6); /* light pink to light blue */
+  font-family: 'Arial', sans-serif;
+  margin: 0;                /* remove default body margin */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Login card styling */
+.login-card {
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Form styling */
+.login-card h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff69b4;
+}
+
+.login-card input {
+  width: 70%;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background-color: #f8f8ff;
+  color: #333;
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  background-color: #e6f0ff;
+  border-color: #ff69b4;
+}
+
+.login-card button {
+  width: 82%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background: #ff69b4;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-card button:hover {
+  background: #ff85c1;
+}
+
+.auth-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-text a {
+  color: #add8e6;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-text a:hover {
+  text-decoration: underline;
+}
