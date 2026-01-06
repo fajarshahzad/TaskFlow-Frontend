@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api", // base backend URL
+  // baseURL: "http://localhost:5000/api", // local backend URL
+  baseURL: "https://task-flow-backend-sigma.vercel.app/api", // live backend URL
 });
 
 // Add token to every request
